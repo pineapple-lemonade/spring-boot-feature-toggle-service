@@ -1,0 +1,13 @@
+services:
+  mongodb:
+    image: 'mongo:latest'
+    environment:
+      - 'MONGO_INITDB_DATABASE=feature_toggle'
+      - 'MONGO_INITDB_ROOT_PASSWORD=secret'
+      - 'MONGO_INITDB_ROOT_USERNAME=g.ruzavin'
+    ports:
+      - '27017'
+  redis:
+    image: 'redis:latest'
+    ports:
+      - '6379'

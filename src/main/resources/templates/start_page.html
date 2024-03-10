@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Feature Toggle Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>JSON Feature Toggle Service</h1>
+    <textarea id="jsonInput" placeholder="Enter your JSON here"></textarea>
+    <button onclick="sendJson()">Save JSON</button>
+    <div id="jsonDisplay"></div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('http://your-backend-url/getAllJsons')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(json => {
+                    document.getElementById('jsonDisplay').innerHTML += <pre>${JSON.stringify(json, null, 2)}</pre>;
+                });
+            });
+    });
+
+    function sendJson() {
+        const json = document.getElementById('jsonInput').value;
+
+        fetch('http://your-backend-url/saveJson', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ json })
+        })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('jsonDisplay').innerHTML += <pre>${JSON.stringify(data, null, 2)}</pre>;
+            });
+    }
+</script>
+</body>
+</html>
