@@ -2,13 +2,19 @@ spring:
   mvc:
     view:
       suffix: .html
-      prefix: /resources/templates
+#      prefix: /resources/templates/
   data:
     mongodb:
-      database: feature_toggle
-      username: g.ruzavin
-      password: secret
-      port: 27017
-      uri: mongodb://localhost:27017/feature_toggle
+#      database: feature_toggle
+#      username: g.ruzavin
+#      password: secret
+#      port: 27017
+      uri: mongodb://g.ruzavin:secret@localhost:27017/feature_toggle?authSource=admin
+#      authentication-database: admin
     redis:
       client-type: lettuce
+logging:
+  level:
+    root: debug
+server:
+  port: 80

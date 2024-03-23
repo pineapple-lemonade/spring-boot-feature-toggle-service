@@ -13,7 +13,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @Builder
-@Document(collation = "feature_toggle")
+@Document(collection = "feature_toggle")
 public class FeatureToggleEntity {
 
     @Id
@@ -21,5 +21,5 @@ public class FeatureToggleEntity {
 
     private String name;
 
-    private Boolean toggle;
+    private Boolean active;
 }

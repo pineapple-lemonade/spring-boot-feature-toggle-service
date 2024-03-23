@@ -10,4 +10,5 @@ public class FeatureToggleController {
     public String getPage() {
         return "start_page";
     }
+
 }

@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public interface FeatureToggleService {
 
-    UUID insertToggle(FeatureToggleEntity value);
+    FeatureToggleEntity insertToggle(FeatureToggleEntity value);
 
     FeatureToggleEntity getToggle(UUID id);
 

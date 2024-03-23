@@ -20,10 +20,9 @@ public class FeatureToggleServiceImpl implements FeatureToggleService {
 
     @Override
     @CacheEvict(key = "#value.id", cacheNames = "toggle")
-    public UUID insertToggle(FeatureToggleEntity value) {
-        FeatureToggleEntity entity = featureToggleRepository.insert(value);
+    public FeatureToggleEntity insertToggle(FeatureToggleEntity value) {
 
-        return entity.getId();
+        return featureToggleRepository.insert(value);
     }
 
     @Override
@@ -38,7 +37,6 @@ public class FeatureToggleServiceImpl implements FeatureToggleService {
     }
 
     @Override
-    @Cacheable("toggles")
     public List<FeatureToggleEntity> findAll() {
         return featureToggleRepository.findAll();
     }
