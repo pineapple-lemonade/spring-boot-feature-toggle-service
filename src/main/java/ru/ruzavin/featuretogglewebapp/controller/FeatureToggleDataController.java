@@ -30,6 +30,11 @@ public class FeatureToggleDataController {
         return featureToggleMapper.fromEntity(featureToggleService.getToggle(id));
     }
 
+    @GetMapping("/name/{name}")
+    public FeatureToggleModel getFeatureToggle(@PathVariable String name) {
+        return featureToggleMapper.fromEntity(featureToggleService.getToggle(name));
+    }
+
     @PostMapping
     public FeatureToggleModel insertFeatureToggleService(@RequestBody CreateFeatureToggleRequest request) {
         return featureToggleMapper.fromEntity(featureToggleService.insertToggle(featureToggleMapper.fromRequest(request)));

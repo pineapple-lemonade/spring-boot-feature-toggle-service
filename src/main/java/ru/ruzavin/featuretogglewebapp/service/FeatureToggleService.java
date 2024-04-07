@@ -10,6 +10,7 @@ public interface FeatureToggleService {
     FeatureToggleEntity insertToggle(FeatureToggleEntity value);
 
     FeatureToggleEntity getToggle(UUID id);
+    FeatureToggleEntity getToggle(String name);
 
     List<FeatureToggleEntity> findAll();
 }

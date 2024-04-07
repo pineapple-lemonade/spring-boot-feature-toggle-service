@@ -37,6 +37,17 @@ public class FeatureToggleServiceImpl implements FeatureToggleService {
     }
 
     @Override
+    @Cacheable(key = "#name", cacheNames = "toggle", condition = "#featureToggleRepository.findByName(name).present")
+    public FeatureToggleEntity getToggle(String name) {
+        Optional<FeatureToggleEntity> optionalEntity = featureToggleRepository.findByName(name);
+        if (optionalEntity.isEmpty()) {
+            throw new DataNotFoundException("Toggle with id " + name + " not found");
+        }
+
+        return optionalEntity.get();
+    }
+
+    @Override
     public List<FeatureToggleEntity> findAll() {
         return featureToggleRepository.findAll();
     }
