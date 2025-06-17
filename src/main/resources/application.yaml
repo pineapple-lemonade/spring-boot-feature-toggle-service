@@ -13,8 +13,8 @@ spring:
 #      authentication-database: admin
     redis:
       client-type: lettuce
-logging:
-  level:
-    root: debug
+#logging:
+#  level:
+#    root: debug
 server:
   port: 80

@@ -21,8 +21,7 @@ public class FeatureToggleServiceImpl implements FeatureToggleService {
     @Override
     @CacheEvict(key = "#value.id", cacheNames = "toggle")
     public FeatureToggleEntity insertToggle(FeatureToggleEntity value) {
-
-        return featureToggleRepository.insert(value);
+        return featureToggleRepository.upsertByName(value);
     }
 
     @Override

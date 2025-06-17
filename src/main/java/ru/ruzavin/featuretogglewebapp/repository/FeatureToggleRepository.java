@@ -6,7 +6,8 @@ import ru.ruzavin.featuretogglewebapp.entity.FeatureToggleEntity;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface FeatureToggleRepository extends MongoRepository<FeatureToggleEntity, UUID> {
+public interface FeatureToggleRepository extends MongoRepository<FeatureToggleEntity, UUID>, CustomFeatureToggleRepository {
 
     Optional<FeatureToggleEntity> findByName(String name);
+
 }

@@ -36,7 +36,7 @@ public class FeatureToggleDataController {
     }
 
     @PostMapping
-    public FeatureToggleModel insertFeatureToggleService(@RequestBody CreateFeatureToggleRequest request) {
+    public FeatureToggleModel insertFeatureToggle(@RequestBody CreateFeatureToggleRequest request) {
         return featureToggleMapper.fromEntity(featureToggleService.insertToggle(featureToggleMapper.fromRequest(request)));
     }
 
